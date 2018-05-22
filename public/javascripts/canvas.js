@@ -3,7 +3,7 @@
 
 //////////  Constructors  \\\\\\\\\\
 function Label(position, text, size, visible, clickable, disabled, font, callback) {
-	if (logFull) console.log("%s(%j)", arguments.callee.name, Array.prototype.slice.call(arguments).sort());
+	 console.log("%s(%j)", arguments.callee.name, Array.prototype.slice.call(arguments).sort());
 		//x and y are integers betweem 0 and 1. Use as percentages.
 this.position = position;
 	this.text = text;
@@ -18,7 +18,7 @@ this.position = position;
 
 //////////  Canvas  \\\\\\\\\\
 function init() {
-	if (logFull) console.log("%s(%j)", arguments.callee.name, Array.prototype.slice.call(arguments).sort());
+	console.log("%s(%j)", arguments.callee.name, Array.prototype.slice.call(arguments).sort());
 	canvas = document.getElementById("game-canvas");
 	ctx = canvas.getContext("2d");
 	handleResize();
@@ -76,7 +76,7 @@ function handleMouseMove(event) {
 }
 
 function handleMouseDown(event) {
-	if (logFull) console.log("%s(%j)", arguments.callee.name, Array.prototype.slice.call(arguments).sort());
+	 console.log("%s(%j)", arguments.callee.name, Array.prototype.slice.call(arguments).sort());
 	for (i in labels) {
 		if (isOnLabel(event, labels[i]) && labels[i].clickable && !labels[i].disabled) {
 			labels[i].down = true;
@@ -86,7 +86,7 @@ function handleMouseDown(event) {
 }
 
 function handleMouseUp(event) {
-	if (logFull) console.log("%s(%j)", arguments.callee.name, Array.prototype.slice.call(arguments).sort());
+	 console.log("%s(%j)", arguments.callee.name, Array.prototype.slice.call(arguments).sort());
 	for (i in labels) {
 		if (labels[i].down) {
 			labels[i].down = false;
@@ -140,13 +140,13 @@ function isOnLabel(event, label) {
 }
 
 function handleResize() {
-	if (logFull) console.log("%s(%j)", arguments.callee.name, Array.prototype.slice.call(arguments).sort());
+	 console.log("%s(%j)", arguments.callee.name, Array.prototype.slice.call(arguments).sort());
 	if (window.innerWidth < window.innerHeight * aspect) {
-		canvas.width = window.innerWidth * 0.9;
+		canvas.width = window.innerWidth * 0.99;
 		canvas.height = window.innerWidth * 0.9 / aspect;
 		r = canvas.width / 1000;
 	} else {
-		canvas.width = window.innerHeight * 0.9 * aspect;
+		canvas.width = window.innerHeight * 0.99 * aspect;
 		canvas.height = window.innerHeight * 0.9;
 		r = canvas.height * aspect / 1000;
 	}
@@ -160,8 +160,8 @@ function handleResize() {
 			};
 		}
 	}
-	playerCardPosition = {x: canvas.width * 0.17, y: canvas.height * 0.15};
-	opponentCardPosition = {x: canvas.width * 0.83 - cardWidth * 1.5, y: canvas.height * 0.15};
+	playerCardPosition = {x: canvas.width * 0.2, y: canvas.height * 0.15};
+	opponentCardPosition = {x: canvas.width * 0.9 - cardWidth * 1.5, y: canvas.height * 0.15};
 }
 
 //////////  Drawing  \\\\\\\\\\
@@ -211,7 +211,7 @@ function drawCard(card, position, scale) {
 	ctx.fillStyle = typeColors[card.type];
 	ctx.font = "bold " + (64 * scale * r) + "px chinese_takeaway";
 	ctx.fillText(card.power, position.x + cardWidth * scale / 2, position.y + cardHeight * scale * 0.4);
-	ctx.font = (32 * scale * r) + "px Arial";
+	ctx.font = (22 * scale * r) + "px Arial";
 	ctx.fillText(types[card.type], position.x + cardWidth * scale / 2, position.y + cardHeight * scale * 0.7);
 }
 
@@ -310,8 +310,8 @@ var clickCursor = false,
 	aspect = 16 / 10,
 	labels = [],
 	labelFont = "Open-24-Display";
-var typeColors = ["#FF8B26", "#1260E6", "#74D5F2"];
-var types = ["Fire", "Water", "Ice"];
+var typeColors = ["#696969", "#000000", "#826C56"];
+var types = ["Foarfeca", "Piatra", "Hartie"];
 var colors = {"yellow": "#fdee00", "orange": "#ffb235", "green": "#52a546", "blue": "#246acd", "red": "#e02929", "purple": "#9738af"};
 
 init();

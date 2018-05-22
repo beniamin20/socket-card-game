@@ -50,7 +50,6 @@ socket.on("no rematch", function() {
 
 //////////  Functions  \\\\\\\\\\
 function enterQueue() {
-	if (logFull)
 	console.log("%s(%s)", arguments.callee.name, Array.prototype.slice.call(arguments).sort());
 	socket.emit("enter queue");
 	labels["play"].visible = false;
@@ -59,7 +58,6 @@ function enterQueue() {
 }
 
 function enterMatch() {
-	if (logFull)
 	console.log("%s(%s)", arguments.callee.name, Array.prototype.slice.call(arguments).sort());
 	playerPoints = [];
 	opponentPoints = [];
@@ -81,7 +79,6 @@ function enterMatch() {
 }
 
 function updateCards(cards) {
-	if (logFull)
 	console.log("%s(%s)", arguments.callee.name, Array.prototype.slice.call(arguments).sort());
 	for (var i = 0; i < cards.length; i++) {
 		handSlots[i].card = cards[i];
@@ -90,7 +87,6 @@ function updateCards(cards) {
 }
 
 function playCard(index) {
-	if (logFull)
 	console.log("%s(%s)", arguments.callee.name, Array.prototype.slice.call(arguments).sort());
 	if (canPlayCard) {
 		socket.emit("play card", index);
@@ -99,13 +95,11 @@ function playCard(index) {
 }
 
 function unknownCardPlayed() {
-	if (logFull)
 	console.log("%s(%s)", arguments.callee.name, Array.prototype.slice.call(arguments).sort());
 	opponentCard = {isUnknown: true};
 }
 
 function displayResult(result) {
-	if (logFull)
 	console.log("%s(%s)", arguments.callee.name, Array.prototype.slice.call(arguments).sort());
 	var player = undefined;
 	var opponent = undefined;
@@ -136,7 +130,6 @@ function displayResult(result) {
 }
 
 function endMatch() {
-	if (logFull)
 	console.log("%s(%s)", arguments.callee.name, Array.prototype.slice.call(arguments).sort());
 	canPlayCard = false;
 	readyToEnd = false;
@@ -169,7 +162,6 @@ function endMatch() {
 }
 
 function exitMatch() {
-	if (logFull)
 	console.log("%s(%s)", arguments.callee.name, Array.prototype.slice.call(arguments).sort());
 	playerPoints = [];
 	opponentPoints = [];
@@ -188,7 +180,6 @@ function exitMatch() {
 }
 
 function requestRematch() {
-	if (logFull)
 	console.log("%s(%s)", arguments.callee.name, Array.prototype.slice.call(arguments).sort());
 	socket.emit("request rematch");
 	labels["rematch"].visible = false;
