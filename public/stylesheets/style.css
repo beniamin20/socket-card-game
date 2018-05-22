@@ -1,0 +1,14 @@
+canvas {
+	border: 1px solid black;
+	margin-top: 2vh;
+  	z-index: 0;
+}
+
+.play-guide {
+	margin: 5%;
+}
+
+@font-face {
+    font-family: "Open-24-Display";
+    src: url("../fonts/Open-24-Display.ttf");
+}
